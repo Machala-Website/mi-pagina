@@ -3,33 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Principal</title>
+    <meta name="description" content="Página principal con navegación y video incrustado.">
+    <title>Página principal</title>
+ 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <!-- defer: el script no bloquea la carga de la página -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
-<body>
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-        <div class="container-fluid">
-            <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="columnas.html">Columnas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="imagen.html">Imagen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-            </ul>
-        </div>
-    </nav>
-    <section>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ww7UQTDsPEc?si=QPLo7YLrMCDTByjS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </section>
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+ 
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand fw-semibold" href="index.html">Mi sitio</a>
+ 
+                <!-- Botón hamburguesa para pantallas pequeñas -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
+                        aria-expanded="false" aria-label="Mostrar u ocultar el menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+ 
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="columnas.html">Columnas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="imagen.html">Imagen</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+ 
+    <main class="container my-5 flex-grow-1">
+        <section class="text-center mb-4">
+            <h1 class="display-5 fw-bold">Bienvenido</h1>
+            <p class="lead text-body-secondary">Mira el video y explora las demás secciones desde el menú.</p>
+        </section>
+ 
+        <section class="row justify-content-center" aria-labelledby="titulo-video">
+            <div class="col-12 col-lg-8">
+                <h2 id="titulo-video" class="h4 mb-3">Video destacado</h2>
+ 
+                <!-- ratio-16x9 hace que el video se adapte al ancho de cualquier pantalla -->
+                <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow">
+                    <iframe src="https://www.youtube.com/embed/ww7UQTDsPEc?si=QPLo7YLrMCDTByjS"
+                            title="Reproductor de video de YouTube"
+                            loading="lazy"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+ 
+    <footer class="bg-dark text-light text-center py-3 mt-auto">
+        <small>&copy; 2026 Mi sitio. Todos los derechos reservados.</small>
+    </footer>
+ 
 </body>
 </html>
